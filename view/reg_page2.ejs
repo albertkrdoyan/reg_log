@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+    "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Registration!</title>
+  <link rel="icon" type="image/ico" href="Img/registration.png" />
+  <link rel="stylesheet" href="public/styles.css">
+
+</head>
+
+<body onload="outLoginPage()">
+  <%- include template\header.ejs%>
+
+  <div class="reg_area">
+    <div class="reg_box">
+      <form action="/registration_n2" method="POST">
+        <input type="text" name="name"><br>
+        <input type="submit" onclick="its()"><br>
+      </form>
+    </div>
+  </div>
+
+  <div class="little_info">
+    <h2>What are manga and anime?</h2>
+    <p>Modern day manga (漫画) can be defined as comics corresponding to a Japanese style which originated during the mid-1900s. The popularity of manga in Japan has since ballooned. Today, there is a huge domestic industry for manga, and increasingly so internationally. In Japan, people of both genders and all ages read manga. For example, it is quite common to see business men in suits reading thick comic books in commuter trains.</p>
+
+    <p>The range of manga genres is diverse, with content ranging from history to futuristic science fiction and from teenage romance to profound themes about life. The comics are broadly separated into four categories according to the target audience: boys, girls, youths and matured. They can be commonly found in bookstores, bookstands and convenience stores all over Japan.</p>
+
+    <p>A manga series may become popular enough that it is made into an anime (アニメ) - Japanese styled animation. Examples of world famous anime include "Dragonball", "Naruto", "Pokemon" and "One Piece". Of course, original scripts may also be written for anime. One popular anime production company with its own distinct style is Studio Ghibli, which has produced award winning works such as "My Neighbor Totoro" and "Spirited Away".</p>
+  </div>
+
+  <div class="under">
+    <hr>
+  </div>
+
+  <script src="js/scripts.js"></script>
+  <script src="js/restore_code.js"></script>
+</body>
+</html>
+<!--	background-color: #80bfff;-->
