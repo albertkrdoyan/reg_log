@@ -67,10 +67,6 @@ app.get('/', (req, res) =>{
     }
 })
 
-app.post('/ok', (req, res)=>{
-	res.end()
-})
-
 app.post('/registration_n', (req, res)=>{
     if(req.cookies['username'] != undefined){
         res.render(__dirname + "\\view\\profile.ejs")
@@ -191,16 +187,14 @@ app.post('/login_n', (req, res) =>{
                     if(result2.length != 0){
                         res.cookie('name', result2[0].name)
                         res.cookie('r_code', result2[0].rest)
-                        resolve("Okay")
-                    }else{
-                        reject("The user data don't found.")
+                        res.render(__dirname + "\\view\\profile.ejs")
                     }
                 })
-            }).finally(()=>{
-                res.render(__dirname + "\\view\\profile.ejs")
+            }).catch(()=>{
+                res.render(__dirname + "\\view\\login_page.ejs")
             })
         }).catch((message) =>{
-            res.render(__dirname + "\\view\\profile.ejs")
+            res.render(__dirname + "\\view\\login_page.ejs")
         })
     }
 })
@@ -224,7 +218,10 @@ app.get('/profile_data', (req, res)=>{
 })
 
 app.get('/profile', (req, res) =>{
-    
 
-    res.render(__dirname + "\\view\\profile.ejs")
+    if(req.cookies['username'] == undefined){
+        res.render(__dirname + "\\view\\login_page.ejs")
+    }else{
+        res.render(__dirname + "\\view\\profile.ejs")
+    }
 })
