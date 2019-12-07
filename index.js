@@ -77,9 +77,7 @@ app.post('/registration_n', (req, res)=>{
 
         if(pass.length == 0){
             res.end("password error")
-        }
-
-        if(pass == c_pass){
+        }else if(pass == c_pass){
 
             const sql1 = "SELECT * FROM users where username = '" + usern + "';"
             conDB.query(sql1, function (err, result) {
