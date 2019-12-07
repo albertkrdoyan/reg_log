@@ -4,6 +4,7 @@ body{
 	background-size: cover;
 	background-attachment: fixed;
 	width: auto;
+	z-index: 0;
 }
 
 #login_area{
