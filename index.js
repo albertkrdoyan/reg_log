@@ -44,40 +44,32 @@ app.listen(8080, '127.0.0.1', ()=>{
 })
 
 app.get('/login_', (req, res) =>{
-    if(req.cookies['username'] != undefined && req.cookies['username'] != "~"){
-        if(true){
-            res.render(__dirname + "\\view\\profile.ejs")
-        }
+    if(req.cookies['username'] != undefined){
+        res.render(__dirname + "\\view\\profile.ejs")
     }else{
         res.render(__dirname + "\\view\\login_page.ejs")
     }
 })
 
 app.get('/registration_', (req, res) =>{
-    if(req.cookies['username'] != undefined && req.cookies['username'] != "~"){
-        if(true){
-            res.render(__dirname + "\\view\\profile.ejs")
-        }
+    if(req.cookies['username'] != undefined){
+        res.render(__dirname + "\\view\\profile.ejs")
     }else{
         res.render(__dirname + "\\view\\reg_page.ejs")
     }
 })
 
 app.get('/', (req, res) =>{
-    if(req.cookies['username'] != undefined && req.cookies['username'] != "~"){
-        if(true){
-            res.render(__dirname + "\\view\\profile.ejs")
-        }
+    if(req.cookies['username'] != undefined){
+        res.render(__dirname + "\\view\\profile.ejs")
     }else{
         res.render(__dirname + "\\view\\main_page.ejs")
     }
 })
 
 app.post('/registration_n', (req, res)=>{
-    if(req.cookies['username'] != undefined && req.cookies['username'] != "~"){
-        if(true){
-            res.render(__dirname + "\\view\\profile.ejs")
-        }
+    if(req.cookies['username'] != undefined){
+        res.render(__dirname + "\\view\\profile.ejs")
     }else{
         let pass = req.body.pass
         let c_pass = req.body.c_pass
@@ -113,10 +105,8 @@ app.post('/registration_n', (req, res)=>{
 })
 
 app.post('/registration_n2', (req, res)=>{
-    if(req.cookies['username'] != undefined && req.cookies['username'] != "~"){
-        if(true){
-            res.render(__dirname + "\\view\\profile.ejs")
-        }
+    if(req.cookies['username'] != undefined){
+        res.render(__dirname + "\\view\\profile.ejs")
     }else{
         let user = req.cookies['reg_username'].toString(), us_id = req.cookies['reg_usid'].toString()
         
@@ -125,7 +115,7 @@ app.post('/registration_n2', (req, res)=>{
 
         var id = setInterval(frame, 1);
         function frame() {
-            if(user != 0 && us_id != 0){
+            if(user != 0 || us_id != 0){
                 clearInterval(id)
             }
         }
@@ -176,10 +166,8 @@ app.post('/registration_n2', (req, res)=>{
 })
 
 app.post('/login_n', (req, res) =>{    
-    if(req.cookies['username'] != undefined && req.cookies['username'] != "~"){
-        if(true){
-            res.render(__dirname + "\\view\\profile.ejs")
-        }
+    if(req.cookies['username'] != undefined){
+        res.render(__dirname + "\\view\\profile.ejs")
     }else{
         new Promise((resolve, reject) =>{
             conDB.query("select * from users where username = '" + req.body.username + "' and password = '" + md5(req.body.password) + "';", (err, result)=>{
@@ -209,7 +197,7 @@ app.post('/login_n', (req, res) =>{
     }
 })
 
-app.post('/profile_data', (req, res)=>{
+app.get('/profile_data', (req, res)=>{
     let data = []
     let d
 
@@ -229,10 +217,8 @@ app.post('/profile_data', (req, res)=>{
 
 app.get('/profile', (req, res) =>{
 
-    if(req.cookies['username'] == undefined || req.cookies['username'] == "~"){
-        if(true){
-            res.render(__dirname + "\\view\\login_page.ejs")
-        }
+    if(req.cookies['username'] == undefined){
+        res.render(__dirname + "\\view\\login_page.ejs")
     }else{
         res.render(__dirname + "\\view\\profile.ejs")
     }

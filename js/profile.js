@@ -20,14 +20,14 @@ function getCookie(cname) {
   }
 
   function LogOut(){
-    document.cookie = 'username=~;'
-
+ //   document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+    document.cookie = "username" + "=;expires=" + new Date().toUTCString() + ";path=/"
     location.href = "/login_"
   }
 
  /**
   * document.cookie = "asd=ASD;" stexcum e cookie
-  * document.cookie = "asd=;" jnjum e ayd cookien
+  * document.cookie = "asd" + "=;expires=" + new Date().toUTCString() + ";path=/"; jnjum e ayd cookien
   * 
   * https://www.w3schools.com/jsref/prop_img_src.asp nkar@ poxelu hamar
   * https://www.w3schools.com/js/js_cookies.asp cookiener
